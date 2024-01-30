@@ -1,0 +1,9 @@
+{
+  "name": "cuong/php2_uewhfemvc",
+  "autoload": {
+    "psr-4": {
+      "Src\\": "src/"
+    }
+  },
+  "require": {}
+}
