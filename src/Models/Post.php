@@ -12,17 +12,21 @@ class Post {
     public function __construct() {
         $this->crud = new CrudOperations();
     }
-    public function addPost($data) {
-        return $this->crud->add('post', $data);
+    public function addPost($data,$file) {
+        return $this->crud->addwithfile('post', $data,'post_id', $file,'thumbnail');
+       
     }
-    public function updatePost($id,$data) {
-        return $this->crud->update('post', $id, $data) ;
+    public function updatePost($id,$data,$file) {
+        return $this->crud->updateWithImage('post','post_id', $id, $data, $file);
     } 
+    public function getPostAll() {
+        return $this->crud->getAll('post') ;
+    }
     public function getPostById($id) {
-        return $this->crud->getById('post', $id) ;
+        return $this->crud->getById('post', 'post_id',$id) ;
     }
     public function deletePostById($id) {
-        return $this->crud->delete('post', $id) ;
+        return $this->crud->delete('post','post_id', $id) ;
     }
    
   }
